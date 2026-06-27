@@ -1,0 +1,76 @@
+---
+import Page from "../layouts/Page.astro";
+---
+
+<Page title="lad.land" description="Main page — lad.land">
+    <article>
+        <p>
+            Hi, I'm Jacob. Though online, I mostly go by <em>lad</em>.
+        </p>
+        <p>
+            My interests are constantly changing and expanding, which makes
+            keeping this list up to date challenging. Currently, I’ve been
+            tinkering with my homelab, completing small electronics projects,
+            and following the latest developments in AI.
+        </p>
+        <p>
+            Some areas I consistently enjoy are music, learning new skills, and
+            travel. I also have a deep love of nature, which, for now, manifests
+            as volunteer work with local animal welfare nonprofits.
+        </p>
+    </article>
+    <hr class="lb1" />
+    <p>You can contact or follow me:</p>
+    <ul class="find-me">
+        <li>
+            Git: <a
+                class="internal-link"
+                href="https://codeberg.org/ladnerlad/"
+                target="_blank"
+                rel="noopener noreferrer">@ladnerlad</a
+            >
+        </li>
+        <li>
+            Instagram: <a
+                class="internal-link"
+                href="https://www.instagram.com/ladnerlad0/"
+                target="_blank"
+                rel="noopener noreferrer">@ladnerlad0</a
+            >
+        </li>
+        <li>
+            Music: <a
+                class="internal-link"
+                href="https://www.albumoftheyear.org/user/ladnerlad/"
+                target="_blank"
+                rel="noopener noreferrer">@ladnerlad</a
+            >
+        </li>
+        <li>
+            Email: <a class="internal-link" href="mailto:contact@lad.land"
+                >contact@lad.land</a
+            >
+        </li>
+    </ul>
+    <p>I apologize if I am slow to respond. I am poor at checking messages.</p>
+    <hr class="lb1" />
+</Page>
+
+<style>
+    .lb1 {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    hr {
+        width: 100%;
+        border: 0;
+        height: 1.5px;
+        background: var(--bg);
+    }
+
+    ul.find-me > li {
+        list-style: disc;
+        list-style-position: outside;
+    }
+</style>

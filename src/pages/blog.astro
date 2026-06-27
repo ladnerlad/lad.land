@@ -1,0 +1,37 @@
+---
+import Page from "../layouts/Page.astro";
+---
+
+<Page title="Blog — lad.land" description="Blog posts — lad.land">
+    <div class="WIP">
+        <p class="WIP-text">
+            This Site Is a Work in Progress; Please Bear With Me in the
+            Meantime.
+        </p>
+    </div>
+</Page>
+
+<style>
+    .WIP {
+        height: auto;
+        width: 100%;
+        border: 0.5em dashed;
+        border-color: var(--accent);
+        border-radius: 0.75em;
+        margin: auto;
+        margin-top: 2.5em;
+        margin-bottom: 5em;
+        background: var(--wip-bg);
+    }
+    .WIP-text {
+        font-family: var(--font-ui);
+        font-size: calc(2rem + 0.25vw);
+        color: var(--mg);
+        text-align: center;
+        vertical-align: middle;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+</style>

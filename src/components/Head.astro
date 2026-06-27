@@ -1,0 +1,39 @@
+---
+import { Font } from "astro:assets";
+---
+
+<script is:inline>
+    (() => {
+        const root = document.documentElement;
+        const stored = localStorage.getItem("theme");
+        const system = matchMedia("(prefers-color-scheme: light)").matches
+            ? "light"
+            : "dark";
+        const initial = stored ?? system;
+        root.dataset.theme = initial;
+
+        const syncAria = (theme) => {
+            document
+                .querySelector(".theme-toggle")
+                ?.setAttribute("aria-checked", String(theme === "light"));
+        };
+
+        window.toggleTheme = () => {
+            const next = root.dataset.theme === "light" ? "dark" : "light";
+            root.dataset.theme = next;
+            localStorage.setItem("theme", next);
+            syncAria(next);
+        };
+
+        document.addEventListener("DOMContentLoaded", () => syncAria(initial));
+    })();
+</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="author" content="ladnerlad" />
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" href="/favicon.ico" sizes="32x32" />
+
+<Font cssVariable="--font-ui" />
+<Font cssVariable="--font-content" />
