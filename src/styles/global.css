@@ -1,29 +1,5 @@
 /* Theme Independent */
 :root {
-<<<<<<< HEAD
-    /* Dark Colours (Theme Dependent) */
-    color-scheme: dark;
-    --mg: #1e1e2e;
-    --fg: #181825;
-    --fg-close: #11111b;
-    --bg: #313244;
-    --bg-far: #45475a;
-    --accent: #eba0ac;
-    --accent-soft: #f2cdcd;
-    --text: #cdd6f4;
-    --muted: #bac2de;
-    --muted-deep: #585b70;
-    --color-selection: #eba0ac40;
-    --wip-bg: #f9e2af;
-
-    /* Spaces */
-    --wrap-normal: 42em;
-
-    --line-height: 1.5;
-
-    /* Icons */
-    --external-link: url("/icons/external-link.svg");
-=======
   /* Dark Colours (Theme Dependent) */
   color-scheme: dark;
   --mg: #1e1e2e;
@@ -43,65 +19,10 @@
 
   /* Icons */
   --external-link: url("/icons/external-link.svg");
->>>>>>> 41a4a4a (Added blog page, headers, and updated README)
 }
 
 /* Light Theme */
 :root[data-theme="light"] {
-<<<<<<< HEAD
-    color-scheme: light;
-    --mg: #eff1f5;
-    --fg: #e6e9ef;
-    --fg-close: #dce0e8;
-    --bg: #ccd0da;
-    --bg-far: #bcc0cc;
-    --accent: #e64553;
-    --accent-soft: #dc8a78;
-    --text: #4c4f69;
-    --muted: #5c5f77;
-    --muted-deep: #acb0be;
-    --color-selection: #e6455340;
-    --wip-bg: #df8e1d;
-}
-
-/* Mains */
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
-html {
-    width: 100%;
-    height: 100%;
-    font-size: 50%;
-}
-
-body {
-    background-color: var(--mg);
-    color: var(--text);
-    line-height: var(--line-height);
-    margin: 2vw auto 0 auto;
-    padding: 2rem 0 24rem;
-}
-
-footer {
-    margin: auto;
-    width: 100%;
-    max-width: var(--wrap-normal);
-}
-
-nav {
-    margin: 0 auto 1.5em;
-    width: 100%;
-    max-width: var(--wrap-normal);
-    font-family: var(--font-ui);
-    font-size: calc(1.5rem + 0.25vw);
-}
-
-nav a {
-    font-size: calc(2rem + 0.25vw);
-=======
   color-scheme: light;
   --mg: #eff1f5;
   --fg: #e6e9ef;
@@ -217,31 +138,10 @@ body.wide .wrap {
   .mail:has(.post:target) .inbox {
     display: none;
   }
->>>>>>> 41a4a4a (Added blog page, headers, and updated README)
 }
 
 /* Positions */
 .flex {
-<<<<<<< HEAD
-    display: flex;
-}
-
-.flex-grow {
-    flex-grow: 1;
-}
-
-.flex-shrink {
-    flex-shrink: 1;
-}
-
-.align-center {
-    align-items: center;
-}
-
-.wrap {
-    max-width: var(--wrap-normal);
-    margin: auto;
-=======
   display: flex;
 }
 
@@ -260,24 +160,10 @@ body.wide .wrap {
 .wrap {
   max-width: var(--wrap-normal);
   margin: auto;
->>>>>>> 41a4a4a (Added blog page, headers, and updated README)
 }
 
 /* Styles */
 .font-ui {
-<<<<<<< HEAD
-    font-family: var(--font-ui);
-    font-size: calc(1.5rem + 0.25vw);
-}
-
-.font-content {
-    font-family: var(--font-content);
-    font-size: calc(1.5rem + 0.25vw);
-}
-
-.plain {
-    text-decoration: none;
-=======
   font-family: var(--font-ui);
   font-size: calc(1.5rem + 0.25vw);
 }
@@ -306,22 +192,10 @@ body.wide .wrap {
   clip-path: inset(50%);
   white-space: nowrap;
   border: 0;
->>>>>>> 41a4a4a (Added blog page, headers, and updated README)
 }
 
 .muted,
 .muted:visited {
-<<<<<<< HEAD
-    color: var(--muted);
-}
-
-.muted-deep {
-    color: var(--muted-deep);
-}
-
-::selection {
-    background: var(--color-selection);
-=======
   color: var(--muted);
 }
 
@@ -331,18 +205,10 @@ body.wide .wrap {
 
 ::selection {
   background: var(--color-selection);
->>>>>>> 41a4a4a (Added blog page, headers, and updated README)
 }
 
 a,
 a:visited {
-<<<<<<< HEAD
-    color: inherit;
-}
-
-a:hover {
-    color: var(--accent);
-=======
   color: inherit;
 }
 
@@ -355,21 +221,10 @@ button:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
   border-radius: 2px;
->>>>>>> 41a4a4a (Added blog page, headers, and updated README)
 }
 
 a[href^="http"]:not([href*="://lad.land"])::after,
 a[href^="mailto:"]::after {
-<<<<<<< HEAD
-    content: "";
-    display: inline-block;
-    width: 0.9em;
-    height: 0.9em;
-    margin-inline-start: 0.1em;
-    background-color: currentColor;
-    -webkit-mask: var(--external-link) center / contain no-repeat;
-    mask: var(--external-link) center / contain no-repeat;
-=======
   content: "";
   display: inline-block;
   width: 0.9em;
@@ -378,5 +233,4 @@ a[href^="mailto:"]::after {
   background-color: currentColor;
   -webkit-mask: var(--external-link) center / contain no-repeat;
   mask: var(--external-link) center / contain no-repeat;
->>>>>>> 41a4a4a (Added blog page, headers, and updated README)
 }

@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-# Stop the nice ones
-User-agent: *
-Disallow: /
-=======
 User-agent: *
 Allow: /
 
@@ -71,4 +66,3 @@ User-agent: YouBot
 Disallow: /
 
 Sitemap: https://lad.land/sitemap-index.xml
->>>>>>> 41a4a4a (Added blog page, headers, and updated README)
