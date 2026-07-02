@@ -1,0 +1,150 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+    entry: CollectionEntry<"blog">;
+}
+
+const { entry } = Astro.props;
+const { title, pubDate, updatedDate } = entry.data;
+
+const dateFmt = new Intl.DateTimeFormat("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+});
+---
+
+<article class="post" id={entry.id}>
+    <a class="back font-ui" href="#">← Inbox</a>
+    <header class="head font-code">
+        <div class="row">
+            <span class="label">Date:</span>
+            <span>
+                <time class="post-header" datetime={pubDate.toISOString()}>{dateFmt.format(pubDate)}</time>
+                {
+                    updatedDate && (
+                        <span class="muted-deep">
+                            {" "}· updated{" "}
+                            <time datetime={updatedDate.toISOString()}>
+                                {dateFmt.format(updatedDate)}
+                            </time>
+                        </span>
+                    )
+                }
+            </span>
+        </div>
+        <div class="row">
+            <span class="label">Subject:</span>
+            <h2 class="post-header">{title}</h2>
+        </div>
+    </header>
+
+    <div class="post-body font-content">
+        <slot />
+    </div>
+
+    <footer class="post-footer font-code muted">
+        <p>View as <a class="muted" href={`/blog/${entry.id}.md`}>raw markdown</a> | steal this post ➜ <a class="muted" href="https://codeberg.org/ladnerlad/lad.land/src/branch/master/LICENSE">CC0 · Code MIT</a></p>
+    </footer>
+</article>
+
+<style>
+    .back {
+        display: none;
+        color: var(--muted);
+        margin-bottom: 1em;
+        font-size: calc(1.5rem + 0.15vw);
+    }
+
+    .head {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4em;
+        align-items: flex-start;
+        margin-bottom: 1em;
+        padding-bottom: 1em;
+        border-bottom: 2.5px solid var(--bg);
+        color: var(--muted);
+        font-size: calc(1.5rem + 0.25vw);
+    }
+
+    .row {
+        display: flex;
+        align-items: baseline;
+        gap: 0.3em;
+    }
+
+    .label {
+        color: var(--muted-deep);
+    }
+
+    .post-header {
+        margin: 0;
+        color: var(--text);
+        font-size: calc(1.75rem + 0.25vw);
+        line-height: 1.2;
+    }
+
+    .post-body :global(h3) { --level: 3; }
+    .post-body :global(h4) { --level: 4; }
+    .post-body :global(h5) { --level: 5; }
+    .post-body :global(h6) { --level: 6; }
+
+    .post-body :global(h3),
+    .post-body :global(h4),
+    .post-body :global(h5),
+    .post-body :global(h6) {
+        font-size: calc(2rem + (6 - var(--level)) * 0.3rem);
+        line-height: 1.2;
+        margin-top: 0.6em;
+        margin-bottom: 0.6em;
+    }
+    .post-footer {
+        margin-top: 2em;
+        padding-top: 0.75em;
+        border-top: 1px solid var(--bg);
+        font-size: calc(1.1rem + 0.15vw);
+    }
+
+    .post-body :global(p) {
+        margin: 0.5em 0;
+    }
+
+    .post-body :global(hr) {
+        width: 100%;
+        border: 0;
+        height: 2.5px;
+        margin: 1.25rem 0;
+        background: var(--bg);
+    }
+
+    .post-body :global(h3 + *),
+    .post-body :global(h4 + *),
+    .post-body :global(h5 + *),
+    .post-body :global(h6 + *) {
+        margin-top: 0.5em;
+    }
+
+    .post-body :global(pre) {
+        overflow-x: auto;
+        padding: 1em;
+        border-radius: 0.5em;
+        background-color: var(--fg) !important;
+    }
+
+    .post-body :global(code) {
+        font-family: var(--font-code);
+    }
+
+    :global(html[data-theme="dark"] .post-body .astro-code),
+    :global(html[data-theme="dark"] .post-body .astro-code span) {
+        color: var(--shiki-dark) !important;
+    }
+
+    @media (max-width: 40em) {
+        .back {
+            display: inline-block;
+        }
+    }
+</style>

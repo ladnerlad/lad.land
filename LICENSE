@@ -52,4 +52,8 @@ Clarifications
 
 The website structure, configuration, and build scripts are considered code (MIT License)
 Blog post content and documentation text are considered documentation (CC0)
+<<<<<<< HEAD
 Code examples within blog posts are dual-licensed and may be used under either license
+=======
+Code examples within blog posts are dual-licensed and may be used under either license
+>>>>>>> 41a4a4a (Added blog page, headers, and updated README)

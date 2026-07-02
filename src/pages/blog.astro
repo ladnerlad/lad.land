@@ -1,5 +1,6 @@
 ---
 import Page from "../layouts/Page.astro";
+<<<<<<< HEAD
 ---
 
 <Page title="Blog — lad.land" description="Blog posts — lad.land">
@@ -8,10 +9,75 @@ import Page from "../layouts/Page.astro";
             This Site Is a Work in Progress; Please Bear With Me in the
             Meantime.
         </p>
+=======
+import Post from "../components/Post.astro";
+import { render } from "astro:content";
+import { getSortedPosts } from "../lib/posts";
+
+const posts = await getSortedPosts();
+
+const rendered = await Promise.all(
+    posts.map(async (post) => ({ post, Content: (await render(post)).Content })),
+);
+
+const count = posts.length;
+
+const dateFmt = new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    day: "numeric",
+});
+---
+
+<Page title="Blog — lad.land" description="Writing from lad." wide>
+    <div class="mail">
+        <aside class="inbox">
+            <header class="inbox-head">
+                <h1 class="font-ui flex-grow">Inbox.</h1>
+                {
+                    count > 0 && (
+                        <span class="inbox-count flex-shrink font-code">
+                            {count} message{count === 1 ? "" : "s"}
+                        </span>
+                    )
+                }
+            </header>
+
+            {
+                count === 0 ? (
+                    <p class="empty muted font-content">Inbox empty.</p>
+                ) : (
+                    <ul class="list">
+                        {posts.map((post) => (
+                            <li>
+                                <a class="msg plain" href={`#${post.id}`}>
+                                    <span class="msg-title font-ui">{post.data.title}</span>
+                                    <time class="msg-date font-code" datetime={post.data.pubDate.toISOString()}>
+                                        {dateFmt.format(post.data.pubDate)}
+                                    </time>
+                                    <span class="msg-subtitle font-content">{post.data.description}</span>
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                )
+            }
+        </aside>
+
+        <section class="reading">
+            {
+                rendered.map(({ post, Content }) => (
+                    <Post entry={post}>
+                        <Content />
+                    </Post>
+                ))
+            }
+        </section>
+>>>>>>> 41a4a4a (Added blog page, headers, and updated README)
     </div>
 </Page>
 
 <style>
+<<<<<<< HEAD
     .WIP {
         height: auto;
         width: 100%;
@@ -33,5 +99,108 @@ import Page from "../layouts/Page.astro";
         margin-bottom: 0.5em;
         margin-left: 1em;
         margin-right: 1em;
+=======
+    .inbox {
+        position: sticky;
+        top: 5em;
+        align-self: start;
+        max-height: calc(100vh - 6em);
+        overflow-y: auto;
+    }
+
+    .inbox-head {
+        display: flex;
+        align-items: baseline;
+        gap: 0.6em;
+        margin: 0 0 0.5em;
+    }
+    .inbox-head h1 {
+        margin: 0;
+        font-size: calc(2.5rem + 0.25vw);
+    }
+    .inbox-count {
+        color: var(--muted-deep);
+        font-size: calc(1rem + 0.15vw);
+    }
+
+    .empty {
+        margin-top: 1em;
+        font-size: calc(1.2rem + 0.25vw);
+    }
+
+    .list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        border-top: 2.5px solid var(--bg);
+    }
+
+    .list li {
+        border-bottom: 2.5px solid var(--bg);
+    }
+
+    .msg {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-areas:
+            "title date"
+            "subtitle subtitle";
+        column-gap: 0.75em;
+        row-gap: 0.15em;
+        align-items: baseline;
+        padding: 0.8em 0.5em;
+        transition: background 0.25s ease;
+    }
+
+    .msg-title {
+        grid-area: title;
+        color: var(--text);
+        font-size: calc(1.75rem + 0.2vw);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .msg-subtitle {
+        grid-area: subtitle;
+        color: var(--muted);
+        font-size: calc(1.5rem + 0.15vw);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .msg-date {
+        grid-area: date;
+        color: var(--muted);
+        font-size: calc(1.5rem + 0.15vw);
+        white-space: nowrap;
+    }
+
+    .msg:visited .msg-title {
+        color: var(--muted);
+    }
+
+    .msg:hover {
+        background: var(--bg);
+    }
+
+    .msg:hover .msg-title {
+        color: var(--accent);
+    }
+
+    @media (max-width: 40em) {
+        .inbox {
+            position: static;
+            max-height: none;
+            overflow: visible;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .msg {
+            transition: none;
+        }
+>>>>>>> 41a4a4a (Added blog page, headers, and updated README)
     }
 </style>

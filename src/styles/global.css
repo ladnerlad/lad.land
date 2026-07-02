@@ -1,5 +1,6 @@
 /* Theme Independent */
 :root {
+<<<<<<< HEAD
     /* Dark Colours (Theme Dependent) */
     color-scheme: dark;
     --mg: #1e1e2e;
@@ -22,10 +23,32 @@
 
     /* Icons */
     --external-link: url("/icons/external-link.svg");
+=======
+  /* Dark Colours (Theme Dependent) */
+  color-scheme: dark;
+  --mg: #1e1e2e;
+  --fg: #181825;
+  --bg: #313244;
+  --accent: #eba0ac;
+  --text: #cdd6f4;
+  --muted: #bac2de;
+  --muted-deep: #585b70;
+  --color-selection: #eba0ac40;
+
+  /* Spaces */
+  --wrap-normal: 42em;
+  --wrap-wide: 60em;
+
+  --line-height: 1.5;
+
+  /* Icons */
+  --external-link: url("/icons/external-link.svg");
+>>>>>>> 41a4a4a (Added blog page, headers, and updated README)
 }
 
 /* Light Theme */
 :root[data-theme="light"] {
+<<<<<<< HEAD
     color-scheme: light;
     --mg: #eff1f5;
     --fg: #e6e9ef;
@@ -78,10 +101,128 @@ nav {
 
 nav a {
     font-size: calc(2rem + 0.25vw);
+=======
+  color-scheme: light;
+  --mg: #eff1f5;
+  --fg: #e6e9ef;
+  --bg: #ccd0da;
+  --accent: #e64553;
+  --text: #4c4f69;
+  --muted: #5c5f77;
+  --muted-deep: #acb0be;
+  --color-selection: #e6455340;
+}
+
+/* Mains */
+@view-transition {
+  navigation: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  font-size: 50%;
+}
+
+body {
+  background-color: var(--mg);
+  color: var(--text);
+  line-height: var(--line-height);
+  margin: 0;
+  padding-top: 2vw;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  width: 100%;
+}
+
+.page-footer {
+  margin: 2rem 0 0;
+  padding: 0 2vw 1vw;
+  width: 100%;
+  view-transition-name: site-footer;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--mg);
+  padding-block: 0.75rem;
+  margin: 0 auto 1.5em;
+  width: 100%;
+  max-width: var(--wrap-normal);
+  font-family: var(--font-ui);
+  font-size: calc(1.5rem + 0.25vw);
+  view-transition-name: site-nav;
+}
+
+nav a {
+  font-size: calc(2rem + 0.25vw);
+}
+
+body.wide nav,
+body.wide .wrap {
+  max-width: var(--wrap-wide);
+}
+
+.mail {
+  display: grid;
+  grid-template-columns: minmax(12em, 15em) 1fr;
+  gap: 2em;
+  align-items: start;
+}
+
+.reading {
+  min-width: 0;
+}
+
+.post {
+  display: none;
+  scroll-margin-top: 5em;
+}
+
+.post:target {
+  display: block;
+}
+
+@media (min-width: 40.0625em) {
+  .reading:not(:has(.post:target)) .post:first-of-type {
+    display: block;
+  }
+}
+
+@media (max-width: 40em) {
+  .mail {
+    grid-template-columns: 1fr;
+  }
+  .mail:has(.post:target) .inbox {
+    display: none;
+  }
+>>>>>>> 41a4a4a (Added blog page, headers, and updated README)
 }
 
 /* Positions */
 .flex {
+<<<<<<< HEAD
     display: flex;
 }
 
@@ -100,10 +241,31 @@ nav a {
 .wrap {
     max-width: var(--wrap-normal);
     margin: auto;
+=======
+  display: flex;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.flex-shrink {
+  flex-shrink: 1;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.wrap {
+  max-width: var(--wrap-normal);
+  margin: auto;
+>>>>>>> 41a4a4a (Added blog page, headers, and updated README)
 }
 
 /* Styles */
 .font-ui {
+<<<<<<< HEAD
     font-family: var(--font-ui);
     font-size: calc(1.5rem + 0.25vw);
 }
@@ -115,10 +277,41 @@ nav a {
 
 .plain {
     text-decoration: none;
+=======
+  font-family: var(--font-ui);
+  font-size: calc(1.5rem + 0.25vw);
+}
+
+.font-code {
+  font-family: var(--font-code);
+  font-size: calc(1.5rem + 0.25vw);
+}
+
+.font-content {
+  font-family: var(--font-content);
+  font-size: calc(1.5rem + 0.25vw);
+}
+
+.plain {
+  text-decoration: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+>>>>>>> 41a4a4a (Added blog page, headers, and updated README)
 }
 
 .muted,
 .muted:visited {
+<<<<<<< HEAD
     color: var(--muted);
 }
 
@@ -128,19 +321,46 @@ nav a {
 
 ::selection {
     background: var(--color-selection);
+=======
+  color: var(--muted);
+}
+
+.muted-deep {
+  color: var(--muted-deep);
+}
+
+::selection {
+  background: var(--color-selection);
+>>>>>>> 41a4a4a (Added blog page, headers, and updated README)
 }
 
 a,
 a:visited {
+<<<<<<< HEAD
     color: inherit;
 }
 
 a:hover {
     color: var(--accent);
+=======
+  color: inherit;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+>>>>>>> 41a4a4a (Added blog page, headers, and updated README)
 }
 
 a[href^="http"]:not([href*="://lad.land"])::after,
 a[href^="mailto:"]::after {
+<<<<<<< HEAD
     content: "";
     display: inline-block;
     width: 0.9em;
@@ -149,4 +369,14 @@ a[href^="mailto:"]::after {
     background-color: currentColor;
     -webkit-mask: var(--external-link) center / contain no-repeat;
     mask: var(--external-link) center / contain no-repeat;
+=======
+  content: "";
+  display: inline-block;
+  width: 0.9em;
+  height: 0.9em;
+  margin-inline-start: 0.1em;
+  background-color: currentColor;
+  -webkit-mask: var(--external-link) center / contain no-repeat;
+  mask: var(--external-link) center / contain no-repeat;
+>>>>>>> 41a4a4a (Added blog page, headers, and updated README)
 }
