@@ -1,22 +1,13 @@
 ---
 import ThemeToggle from "../components/ThemeToggle.astro";
-<<<<<<< HEAD
-=======
 
 const path = Astro.url.pathname;
 const isActive = (href: string) =>
     href === "/" ? path === "/" : path.startsWith(href);
->>>>>>> 41a4a4a (Added blog page, headers, and updated README)
 ---
 
 <nav class="flex align-center">
     <span class="flex-grow">
-<<<<<<< HEAD
-        <a class="internal-link plain" href="/">lad.</a>
-    </span>
-    <span class="flex-shrink">
-        <a class="muted internal-link plain" href="/blog">blog.</a>
-=======
         <a class="plain" href="/" aria-current={isActive("/") ? "page" : undefined}
             >lad.</a
         >
@@ -27,7 +18,6 @@ const isActive = (href: string) =>
             href="/blog"
             aria-current={isActive("/blog") ? "page" : undefined}>blog.</a
         >
->>>>>>> 41a4a4a (Added blog page, headers, and updated README)
     </span>
     <ThemeToggle />
 </nav>

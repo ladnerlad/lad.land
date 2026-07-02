@@ -1,15 +1,5 @@
 ---
 import Page from "../layouts/Page.astro";
-<<<<<<< HEAD
----
-
-<Page title="Blog — lad.land" description="Blog posts — lad.land">
-    <div class="WIP">
-        <p class="WIP-text">
-            This Site Is a Work in Progress; Please Bear With Me in the
-            Meantime.
-        </p>
-=======
 import Post from "../components/Post.astro";
 import { render } from "astro:content";
 import { getSortedPosts } from "../lib/posts";
@@ -72,34 +62,10 @@ const dateFmt = new Intl.DateTimeFormat("en-US", {
                 ))
             }
         </section>
->>>>>>> 41a4a4a (Added blog page, headers, and updated README)
     </div>
 </Page>
 
 <style>
-<<<<<<< HEAD
-    .WIP {
-        height: auto;
-        width: 100%;
-        border: 0.5em dashed;
-        border-color: var(--accent);
-        border-radius: 0.75em;
-        margin: auto;
-        margin-top: 2.5em;
-        margin-bottom: 5em;
-        background: var(--wip-bg);
-    }
-    .WIP-text {
-        font-family: var(--font-ui);
-        font-size: calc(2rem + 0.25vw);
-        color: var(--mg);
-        text-align: center;
-        vertical-align: middle;
-        margin-top: 0.5em;
-        margin-bottom: 0.5em;
-        margin-left: 1em;
-        margin-right: 1em;
-=======
     .inbox {
         position: sticky;
         top: 5em;
@@ -201,6 +167,5 @@ const dateFmt = new Intl.DateTimeFormat("en-US", {
         .msg {
             transition: none;
         }
->>>>>>> 41a4a4a (Added blog page, headers, and updated README)
     }
 </style>
