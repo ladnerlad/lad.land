@@ -8,8 +8,6 @@ The site is built using [Astro](https://github.com/withastro/astro), this puts m
 
 When JavaScript is used it is kept to a minimum.
 
-Currently I use [Bun](https://github.com/oven-sh/bun), however this may change after the recent rewrite.
-
 All posts are written in Markdown or Mdx, depending on the post. These are openly shared for public use.
 
 ## Licensing
